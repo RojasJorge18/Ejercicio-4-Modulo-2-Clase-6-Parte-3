@@ -131,16 +131,13 @@ private DefaultTableModel modelo= new DefaultTableModel();   /// Creo el Modelo 
                                                         /// KeyReleased es una accion se crea
                                                         /// una fila de texto que empieza buscar apenas soltas el dedo
                                                         /// del teclado
-      try{                                                  
+                                                 
         for (Producto produ:Supermercado.listaProducto){
                                                         /// con este foreach busco dentro de la listaProducto del TreeSet creado en 
                                                         /// la clase Supermercado
                                                         
             if(produ.getNombre().startsWith(jTNombre.getText())){
-                if(jTNombre.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Campo Vacio. Completar todos los datos");
-            return;
-                }
+                
                 modelo.addRow(new Object[]{
                 produ.getCodigo(),
                 produ.getPrecio(),
@@ -149,14 +146,11 @@ private DefaultTableModel modelo= new DefaultTableModel();   /// Creo el Modelo 
                 produ.getRubro(),
                 });
                                                         // Con este if comparo si lo que aparece en el TreeSet es igual a lo que figura en el espacio 
-                                                        // para insertar caracteres y luego si hay concidencia mostrar esa informacion en la tabla 
+                                                       // para insertar caracteres y luego si hay concidencia mostrar esa informacion en la tabla 
                                                         // en ese orden
             }
-            
         }
-        }catch(NumberFormatException nf){
-        JOptionPane.showMessageDialog(this, "ERROR. Debe ingresar un numero ");
-    }
+        
     }//GEN-LAST:event_jTNombreKeyReleased
 
 
@@ -189,7 +183,6 @@ private DefaultTableModel modelo= new DefaultTableModel();   /// Creo el Modelo 
                                     // se llama a la Tabla y se renueve las filas q estan de mas con un for
         }
         
-    }
-    
-    
-}
+    }}
+   
+

@@ -20,6 +20,7 @@ public boolean isCellEditable(int f, int c){
     
     }
 
+
     /**
      * Creates new form PorRubro
      */
@@ -117,7 +118,7 @@ public boolean isCellEditable(int f, int c){
         
     
     private void jCPorrubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPorrubroActionPerformed
-        
+        eliminarFilas();
         
         Categorias cate= (Categorias)jCPorrubro.getSelectedItem();
                                                                         // Con este Action Performed interactuo con el Boton de rubros y lo vinculo con 
@@ -178,11 +179,10 @@ public boolean isCellEditable(int f, int c){
 
     private void eliminarFilas(){
         
-        int f = jTProductos.getRowCount()-1;
+        //int f = jTProductos.getRowCount()-1;
                                     // con RowCount te cuenta la cantidad de filas q hay
-        for(;f>=0; f--){
-            modelo.removeRow(f);
-                                    // se llama a la Tabla y se renueve las filas q estan de mas con un for
+        while (modelo.getRowCount() > 0) {
+            modelo.removeRow(0);
         }
         
     }
