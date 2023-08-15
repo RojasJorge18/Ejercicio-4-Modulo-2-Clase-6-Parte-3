@@ -137,7 +137,12 @@ private DefaultTableModel modelo= new DefaultTableModel();   /// Creo el Modelo 
                                                         /// la clase Supermercado
                                                         
             if(produ.getNombre().startsWith(jTNombre.getText())){
-                
+ //               if(jTNombre.getText().isEmpty()){
+ //           JOptionPane.showMessageDialog(this, "Campo Vacio. Completar todos los datos");
+ //           return;
+ //               }
+ // Este IF tendria sentido si existiera un Boton. Pero como es un evento KeyRealese que busca mientras escribis, termina siendo un Problema
+ 
                 modelo.addRow(new Object[]{
                 produ.getCodigo(),
                 produ.getPrecio(),

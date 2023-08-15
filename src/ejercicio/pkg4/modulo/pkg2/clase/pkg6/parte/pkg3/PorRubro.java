@@ -179,8 +179,8 @@ public boolean isCellEditable(int f, int c){
 
     private void eliminarFilas(){
         
-        //int f = jTProductos.getRowCount()-1;
-                                    // con RowCount te cuenta la cantidad de filas q hay
+        
+                                    // Mientras la cantidad de filas sea mayor a 0 remover fila
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }

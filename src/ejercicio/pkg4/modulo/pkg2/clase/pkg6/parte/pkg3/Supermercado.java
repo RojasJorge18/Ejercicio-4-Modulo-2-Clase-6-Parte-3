@@ -61,6 +61,11 @@ public static TreeSet<Producto> listaProducto= new TreeSet<>(); // Es un TreeSet
         jMAdmin.setText("Administracion");
 
         jMProductos.setText("Productos");
+        jMProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMProductosActionPerformed(evt);
+            }
+        });
         jMAdmin.add(jMProductos);
 
         jMenuBar1.add(jMAdmin);
@@ -151,6 +156,16 @@ public static TreeSet<Producto> listaProducto= new TreeSet<>(); // Es un TreeSet
         jDEscritorio.moveToFront(xprecio);
         
     }//GEN-LAST:event_jMPrecioActionPerformed
+
+    private void jMProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMProductosActionPerformed
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        GestionProductos menu= new GestionProductos();    // poniendo el nombre de GestioProductos la vinculo con el InterFrame
+        menu.setVisible(true);                            // con la variable menu llamo a ese Objeto 
+        jDEscritorio.add(menu);
+        jDEscritorio.moveToFront(menu);
+        
+    }//GEN-LAST:event_jMProductosActionPerformed
 
     /**
      * @param args the command line arguments
