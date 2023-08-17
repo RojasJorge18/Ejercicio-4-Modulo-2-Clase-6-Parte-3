@@ -74,7 +74,6 @@ public class GestionProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        jCRubro.setEditable(true);
         jCRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCRubroActionPerformed(evt);
@@ -184,11 +183,14 @@ public class GestionProductos extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBNuevo)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBNuevo)
+                            .addComponent(jBGuardar))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jBEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -216,14 +218,16 @@ public class GestionProductos extends javax.swing.JInternalFrame {
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         int codigo= Integer.parseInt(jTCodigo.getText());
-        String producto= jTProducto.getText();
-        double precio= Double.parseDouble(jTPrecio.getText());
-        String descripcion= jTDescripcion.getText();
-        int stock= Integer.parseInt(jTStock.getText());
+//        String producto= jTProducto.getText();
+//        double precio= Double.parseDouble(jTPrecio.getText());
+//        String descripcion= jTDescripcion.getText();
+//        int stock= Integer.parseInt(jTStock.getText());
         
                                                                       // Tengo problemas a la hora de borrar el ultimo Item guardado                                                                
-        Categorias categoria= (Categorias) jCRubro.getSelectedItem();
-        listaProducto.remove(produ.getCodigo);
+//        Categorias categoria= (Categorias) jCRubro.getSelectedItem();
+        
+        if(listaProducto.contains(Integer.parseInt(jTCodigo.getText())))
+        listaProducto.remove(codigo);
         
     }//GEN-LAST:event_jBEliminarActionPerformed
 
@@ -237,19 +241,18 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         
         for (Producto produ: Supermercado.listaProducto){
             
-         if(produ.getCodigo() == Integer.parseInt(jTCodigo.getText())  ||   
-             produ.getNombre().equals(jTProducto.getText())) {
+         if(produ.getCodigo() == Integer.parseInt(jTCodigo.getText())) {
                                                                             // Con esto hago aparecer esa info en los casilleros vacios
                                                                             
                                                                             // Tengo inconvenientes por que no me lee cuando pongo el Codigo
                                                                             // y cuando pongo el codigo y el nombre me resta el nro del codigo
-                                                                            
-            jTCodigo.setText(produ.getCodigo()+"");
+            String codigo= Integer.toString(produ.getCodigo());
+            jTCodigo.setText(codigo);
             jTProducto.setText(produ.getNombre());
             jTDescripcion.setText(produ.getDescripcion());
-            jTPrecio.setText(produ.getPrecio()+"");
+            jTPrecio.setText(produ.getPrecio()+ "");
             jCRubro.setSelectedItem(produ.getRubro());
-            jTStock.setText(produ.getStock()+"");
+            jTStock.setText(produ.getStock()+ "");
             
              
          }   

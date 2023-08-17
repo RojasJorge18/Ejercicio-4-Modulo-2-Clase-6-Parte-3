@@ -61,6 +61,7 @@ public static TreeSet<Producto> listaProducto= new TreeSet<>(); // Es un TreeSet
         jMAdmin.setText("Administracion");
 
         jMProductos.setText("Productos");
+        jMProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMProductosActionPerformed(evt);
